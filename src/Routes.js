@@ -2,17 +2,39 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./containers/Home";
 import NotFound from "./containers/NotFound";
+import Login from "./containers/Login";
+import Signup from "./containers/Signup";
+import NewPainting from "./containers/NewPainting";
+import Paintings from "./containers/Paintings";
+import Settings from "./containers/Settings";
+import AuthenticatedRoute from "./components/AuthenticatedRoute";
+import UnauthenticatedRoute from "./components/UnauthenticatedRoute";
+
 
 export default function Routes() {
   return (
-    <Switch>
+    <Switch> 
       <Route exact path="/">
         <Home />
       </Route>
-      {/* Finally, catch all unmatched routes */}
-<Route>
-  <NotFound />
-</Route>
+      <UnauthenticatedRoute exact path="/login">
+  <Login />
+</UnauthenticatedRoute>
+<UnauthenticatedRoute exact path="/signup">
+  <Signup />
+</UnauthenticatedRoute>
+<AuthenticatedRoute exact path="/settings">
+  <Settings />
+</AuthenticatedRoute>
+<AuthenticatedRoute exact path="/paintings/new">
+  <NewPainting />
+</AuthenticatedRoute>
+<AuthenticatedRoute exact path="/paintings/:id">
+  <Paintings />
+</AuthenticatedRoute>
+      <Route>
+        <NotFound />
+      </Route>
     </Switch>
   );
 }

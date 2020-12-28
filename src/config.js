@@ -1,4 +1,6 @@
 const config = {
+  STRIPE_KEY: "pk_test_x4KSpqp8mUWGP8ounZ4tbF5P001esQ3PfI",
+  MAX_ATTACHMENT_SIZE: 5000000,
   s3: {
     REGION: "us-east-2",
     BUCKET: "paintingsbucket",
